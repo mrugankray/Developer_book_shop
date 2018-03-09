@@ -1,0 +1,26 @@
+<div class="container">
+        <section id="products">
+        <div class="row">
+          <div class="col-md-4 col-sm-6 space" *ngFor='let books of booksDetails'>
+            <div class="thumbnail">
+              <img class="bookImages" [src]="books.bookImageUrl">
+              <div class="caption">
+                <h4 class="pull-right">
+                  {{books.bookPrice | currency : 'USD' : true}}
+                </h4>
+                <h4><a [routerLink]="['/books',books.id]">{{books.bookTitle}}</a></h4>
+                <p class="info"><b>Author: </b>{{books.bookAuthor}}</p>
+                <p class="info"><b>Description: </b>{{books.bookDesciption | limitChar : '10'}}</p>
+                <p class="info"><b>Published On: </b>{{books.publishedOn | date:'shortDate'}}</p>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  <p class="pull-right info">{{books.bookReviews}} Reviews</p>
+                  <b>In stock<span class="pull-right text-success info" >&nbsp;{{books.inStock?'Yes':'No'}}</span></b>
+                  <app-favourite [reviews]='books.bookReviews' [favouriteBookTitle]='books.bookTitle'>
+
+                  </app-favourite>
+                </div>
+              </div>
+            </div>

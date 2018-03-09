@@ -1,0 +1,11 @@
+<div class="fave">
+    <p>
+        <span (click)='onClick()' [title]='favouriteBookTitle'>
+            <strong>Add To Favourite</strong>
+            <span [ngClass]="{'favSelected':fav}">
+                <i class="fas fa-heart">
+                </i>&nbsp;&nbsp;&nbsp;
+            </span>
+        </span>{{reviews}}   
+    </p>
+</div>
